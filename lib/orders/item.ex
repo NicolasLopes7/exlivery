@@ -6,6 +6,15 @@ defmodule Exlivery.Orders.Item do
 
   def build(description, category, unity_price, quantity)
       when category in @categories and quantity > 0 do
+    build_item(description, category, quantity, unity_price)
+  end
+
+  def build(_description, _category, _unity_price, _quantity), do: {:error, "Invalid parameters"}
+
+  defp build_item(:error, _description, _category, _quantity),
+    do: {:error, "Invalid unity_price"}
+
+  defp build_item(description, category, quantity, unity_price) do
     {:ok,
      %__MODULE__{
        description: description,
@@ -14,6 +23,4 @@ defmodule Exlivery.Orders.Item do
        quantity: quantity
      }}
   end
-
-  def build(_description, _category, _unity_price, _quantity), do: {:error, "Invalid parameters"}
 end
