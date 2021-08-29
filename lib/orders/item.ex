@@ -11,9 +11,6 @@ defmodule Exlivery.Orders.Item do
 
   def build(_description, _category, _unity_price, _quantity), do: {:error, "Invalid parameters"}
 
-  defp build_item(:error, _description, _category, _quantity),
-    do: {:error, "Invalid unity_price"}
-
   defp build_item(description, category, quantity, unity_price) do
     {:ok,
      %__MODULE__{
