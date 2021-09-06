@@ -10,6 +10,6 @@
  - [x] The application should store the data of users in an agent
  - [ ] The application should store the data of items in an agent
  - [ ] The application should store the data of orders in an agent
-## Installation
+## How to run
 Run `mix deps.get` and interact with the application facades' on `Exlivery` module, using `iex -S mix`
 
